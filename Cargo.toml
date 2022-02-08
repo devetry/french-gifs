@@ -1,0 +1,21 @@
+[package]
+name = "tt"
+version = "0.1.0"
+authors = ["Ben Fenwick <benfenny@protonmail.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+reqwest = { version = "0.11", default-features = false, features = ["json", "rustls-tls-webpki-roots"] }
+image = "0.23.14"
+regex = "1.5"
+rpi-led-matrix = "0.2.2"
+tokio-tungstenite = { version = "0.16", features = ["rustls-tls-webpki-roots"] }
+tokio = { version = "1.0.0", default-features = false, features = ["io-std", "macros", "net", "rt-multi-thread", "time"] }
+futures-util = { version = "0.3", default-features = false, features = ["sink", "std"] }
+futures = "0.3"
+url = "2.0.0"
+bytes = "1.1"
