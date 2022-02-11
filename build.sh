@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cross build --target armv7-unknown-linux-gnueabihf --features adafruit --release
+cross build --target armv7-unknown-linux-gnueabihf --release
 
 rm -rf binary
 mkdir -p binary

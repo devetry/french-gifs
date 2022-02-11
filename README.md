@@ -2,7 +2,7 @@
 
 TODO
 
-# Buidl Steps
+# Build Steps
 
 - Install `cargo` locally
 - Install `cross`, using `cargo install cross`

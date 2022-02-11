@@ -1,6 +1,6 @@
 use image::Rgb;
 use image::{buffer::EnumeratePixels, Pixel};
-use rpi_led_matrix::{LedColor, LedMatrix, LedMatrixOptions, LedRuntimeOptions};
+use rpi_led_matrix::{LedColor, LedMatrix, LedMatrixOptions};
 
 pub fn show_board<P: Pixel<Subpixel = u8>>(
     colors: EnumeratePixels<P>,
@@ -19,15 +19,11 @@ pub fn show_board<P: Pixel<Subpixel = u8>>(
         })
         .collect::<Vec<_>>();
 
-    // 8======> (.)(.) // hawt
     let mut options = LedMatrixOptions::new();
-    options.set_hardware_mapping("adafruit-hat");
-    options.set_limit_refresh(60);
+    options.set_hardware_mapping("adafruit-hat-pwm");
     options.set_cols(64);
     options.set_rows(64);
-    let mut runtime_options = LedRuntimeOptions::new();
-    runtime_options.set_gpio_slowdown(3);
-    let matrix = LedMatrix::new(Some(options), Some(runtime_options)).unwrap();
+    let matrix = LedMatrix::new(Some(options), None).unwrap();
     let mut canvas = matrix.offscreen_canvas();
 
     for item in &color_list {
